@@ -1,0 +1,10 @@
+#!/bin/bash -e
+#
+# S2I run script for the 's2i-maven-java' image.
+# The run script executes the server that runs your application.
+#
+# For more information see the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+export JAVA_OPTS="-server -Xms1600m -Xmx1600m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/heap-dump.hprof -XX:OnOutOfMemoryError=/mnt/thread-heap-dump-script/thread_heap_dump_email.py -XX:+ExitOnOutOfMemoryError"
+sh /opt/app-root/my-setup.sh
